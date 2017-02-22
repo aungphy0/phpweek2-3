@@ -1,7 +1,7 @@
 # phpweek2-3
 # Project 2 - Input/Output Sanitization
 
-Time spent: 48 hours spent in total
+Time spent: 72 hours spent in total
 
 ## User Stories
 
@@ -25,39 +25,39 @@ The following **required** functionality is completed:
   * [x]  Required: new.php
   * [x]  Required: edit.php
 
-6\. [ ]  Required: Complete Staff CMS for Territories
-  * [ ]  Required: index.php
-  * [ ]  Required: show.php
-  * [ ]  Required: new.php
-  * [ ]  Required: edit.php
+6\. [X]  Required: Complete Staff CMS for Territories
+  * [X]  Required: index.php
+  * [X]  Required: show.php
+  * [X]  Required: new.php
+  * [X]  Required: edit.php
 
 7\. [x]  Required: Add Data Validations
   * [x]  Required: Validate that no values are left blank.
   * [x]  Required: Validate that all string values are less than 255 characters.
-  * [ ]  Required: Validate that usernames contain only the whitelisted characters.
-  * [ ]  Required: Validate that phone numbers contain only the whitelisted characters.
-  * [ ]  Required: Validate that email addresses contain only whitelisted characters.
-  * [ ]  Required: Add *at least 5* other validations of your choosing.
+  * [X]  Required: Validate that usernames contain only the whitelisted characters.
+  * [X]  Required: Validate that phone numbers contain only the whitelisted characters.
+  * [X]  Required: Validate that email addresses contain only whitelisted characters.
+  * [X]  Required: Add *at least 5* other validations of your choosing.
 
-8\. [ ]  Required: Sanitization
-  * [ ]  Required: All input and dynamic output should be sanitized.
-  * [ ]  Required: Sanitize dynamic data for URLs
-  * [ ]  Required: Sanitize dynamic data for HTML
-  * [ ]  Required: Sanitize dynamic data for SQL
+8\. [X]  Required: Sanitization
+  * [X]  Required: All input and dynamic output should be sanitized.
+  * [X]  Required: Sanitize dynamic data for URLs
+  * [X]  Required: Sanitize dynamic data for HTML
+  * [X]  Required: Sanitize dynamic data for SQL
 
-9\. [ ]  Required: Penetration Testing
-  * [ ]  Required: Verify form inputs are not vulnerable to SQLI attacks.
-  * [ ]  Required: Verify query strings are not vulnerable to SQLI attacks.
-  * [ ]  Required: Verify form inputs are not vulnerable to XSS attacks.
-  * [ ]  Required: Verify query strings are not vulnerable to XSS attacks.
-  * [ ]  Required: Listed other bugs or security vulnerabilities
+9\. [x]  Required: Penetration Testing
+  * [x]  Required: Verify form inputs are not vulnerable to SQLI attacks.
+  * [x]  Required: Verify query strings are not vulnerable to SQLI attacks.
+  * [x]  Required: Verify form inputs are not vulnerable to XSS attacks.
+  * [x]  Required: Verify query strings are not vulnerable to XSS attacks.
+  * [x]  Required: Listed other bugs or security vulnerabilities
 
 
 The following advanced user stories are optional:
 
 - [ ]  Bonus: On "public/staff/territories/show.php", display the name of the state.
 
-- [ ]  Bonus: Validate the uniqueness of `users.username`.
+- [x]  Bonus: Validate the uniqueness of `users.username`.
 
 - [ ]  Bonus: Add a page for "public/staff/users/delete.php".
 
@@ -70,7 +70,7 @@ The following advanced user stories are optional:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/bRC8W8U.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src=http://i.imgur.com/8PSPEfo.gif title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
