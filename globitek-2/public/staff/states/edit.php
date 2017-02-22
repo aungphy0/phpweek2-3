@@ -38,13 +38,13 @@ if(is_post_request()) {
 
    <?php echo display_errors($errors); ?>
   <!-- TODO add form -->
-<form action="edit.php?id=<?php echo $state['id']; ?>" method="post">
+<form action="edit.php?id=<?php echo h(u($state['id'])); ?>" method="post">
   Name:<br />
-  <input type="text" name="name" value="<?php echo $state['name']; ?>" /><br />
+  <input type="text" name="name" value="<?php echo h($state['name']); ?>" /><br />
   Code:<br />
-  <input type="text" name="code" value="<?php echo $state['code']; ?>" /><br />
+  <input type="text" name="code" value="<?php echo h($state['code']); ?>" /><br />
   Country ID:<br />
-  <input type="text" name="country_id" value="<?php echo $state['country_id']; ?>" /><br />
+  <input type="text" name="country_id" value="<?php echo h($state['country_id']); ?>" /><br />
   <br />
   <input type="submit" name="submit" value="Update"  />
   <form action="show.php"><input type="submit" value="Cancel"/></form>

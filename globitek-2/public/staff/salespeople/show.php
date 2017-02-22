@@ -37,7 +37,7 @@ $salesperson = db_fetch_assoc($salespeople_result);
     db_free_result($salespeople_result);
   ?>
   <br />
-  <a href="edit.php?id=<?php echo $salesperson['id'];?>">Edit</a><br />
+  <a href="edit.php?id=<?php echo h(u($salesperson['id']));?>">Edit</a><br />
 </div>
 
 <?php include(SHARED_PATH . '/footer.php'); ?>

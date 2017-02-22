@@ -15,7 +15,7 @@ $state_id = $territory['state_id'];
 <?php include(SHARED_PATH . '/header.php'); ?>
 
 <div id="main-content">
-  <a href="../states/show.php?id=<?php echo $territory['state_id'];?>">Back to State Details</a>
+  <a href="../states/show.php?id=<?php echo h(u($territory['state_id']));?>">Back to State Details</a>
   <br />
 
   <h1>Territory: <?php echo $territory['name']; ?></h1>
@@ -24,22 +24,22 @@ $state_id = $territory['state_id'];
     echo "<table id=\"territory\">";
     echo "<tr>";
     echo "<td>Name: </td>";
-    echo "<td>" . $territory['name'] . "</td>";
+    echo "<td>" . h($territory['name']) . "</td>";
     echo "</tr>";
     echo "<tr>";
     echo "<td>State ID: </td>";
-    echo "<td>" . $territory['state_id'] . "</td>";
+    echo "<td>" . h($territory['state_id']) . "</td>";
     echo "</tr>";
     echo "<tr>";
     echo "<td>Position: </td>";
-    echo "<td>" . $territory['position'] . "</td>";
+    echo "<td>" . h($territory['position']) . "</td>";
     echo "</tr>";
     echo "</table>";
 
     db_free_result($territory_result);
   ?>
   <br />
-  <a href="../territories/edit.php?id=<?php echo $territory['state_id'];?>">Edit</a><br />
+  <a href="../territories/edit.php?id=<?php echo h(u($territory['id']));?>">Edit</a><br />
 
 </div>
 

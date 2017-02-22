@@ -45,17 +45,21 @@
   }
 
   function validate_state($state, $errors=array()) {
-    // TODO add validations
+
     if (is_blank($state['name'])) {
       $errors[] = "State name cannot be blank.";
     } elseif (!has_length($state['name'], array('min' => 2, 'max' => 255))) {
       $errors[] = "State name must be between 2 and 255 characters.";
+    } elseif (!preg_match("/\A[A-Za-z\s]+\Z/",$state['name'])){
+      $errors[] = "State name must be only letters.";
     }
 
     if (is_blank($state['code'])) {
       $errors[] = "Code cannot be blank.";
-    } elseif (!has_length($state['code'], array('min' => 2, 'max' => 255))) {
-      $errors[] = "Code must be between 2 and 255 characters.";
+    } elseif (!has_length($state['code'], array('min' => 2, 'max' => 3))) {
+      $errors[] = "Code must be between 2 and 3 characters.";
+    } elseif (!preg_match("/\A[A-Z]+\Z/",$state['code'])){
+      $errors[] = "Code must be only capital letters.";
     }
 
     if (is_blank($state['countryid'])) {
@@ -77,7 +81,6 @@
       return $errors;
     }
 
-    //$sql = ""; // TODO add SQL
     $sql = "INSERT INTO states";
     $sql .= "(name, code, country_id) ";
     $sql .= "VALUES (";
@@ -108,7 +111,6 @@
       return $errors;
     }
 
-    //$sql = ""; // TODO add SQL
     $sql = "UPDATE states SET ";
     $sql .= "name='" . $state['name'] . "', ";
     $sql .= "code='" . $state['code'] . "', ";
@@ -161,17 +163,23 @@
   }
 
   function validate_territory($territory, $errors=array()) {
-    // TODO add validations
+
     if (is_blank($territory['name'])) {
       $errors[] = "Territory name cannot be blank.";
     } elseif (!has_length($territory['name'], array('min' => 2, 'max' => 255))) {
       $errors[] = "Territory name must be between 2 and 255 characters.";
+    } elseif (!preg_match("/\A[A-Za-z\s]+\Z/",$territory['name'])){
+      $errors[] = "Territory name must be only letters.";
+      //custom validation
     }
 
     if (is_blank($territory['position'])) {
       $errors[] = "Position cannot be blank.";
-    } elseif (!has_length($territory['position'], array('min' => 1, 'max' => 255))) {
-      $errors[] = "Position must be between 2 and 255 characters.";
+    } elseif (!has_length($territory['position'], array('min' => 1, 'max' => 3))) {
+      $errors[] = "Position must be between 1 and 3 digits.";
+    } elseif (!preg_match("/\A[1-9]+\Z/",$territory['position'])){
+      $errors[] = "Position must be only digits.";
+      //custom validation
     }
 
     return $errors;
@@ -187,7 +195,6 @@
       return $errors;
     }
 
-    //$sql = ""; // TODO add SQL
     $sql = "INSERT INTO territories";
     $sql .= "(name, state_id, position) ";
     $sql .= "VALUES (";
@@ -218,11 +225,10 @@
       return $errors;
     }
 
-    //$sql = ""; // TODO add SQL
     $sql = "UPDATE territories SET ";
     $sql .= "name='" . $territory['name'] . "', ";
-    $sql .= "position='" . $territory['code'] . "' ";
-    $sql .= "WHERE id='" . $state['id'] . "' ";
+    $sql .= "position='" . $territory['position'] . "' ";
+    $sql .= "WHERE id='" . $territory['id'] . "' ";
     $sql .= "LIMIT 1;";
     // For update_territory statments, $result is just true/false
     $result = db_query($db, $sql);
@@ -274,23 +280,31 @@
   }
 
   function validate_salesperson($salesperson, $errors=array()) {
-    // TODO add validations
+
     if (is_blank($salesperson['first_name'])) {
       $errors[] = "First name cannot be blank.";
     } elseif (!has_length($salesperson['first_name'], array('min' => 2, 'max' => 255))) {
       $errors[] = "First name must be between 2 and 255 characters.";
+    } elseif (!preg_match("/\A[A-Za-z\s\-,\.\']+\Z/",$salesperson['first_name'])){
+      $errors[] = "Last name must be only letters, space and symbols(- , . ').";
     }
+
 
     if (is_blank($salesperson['last_name'])) {
       $errors[] = "Last name cannot be blank.";
     } elseif (!has_length($salesperson['last_name'], array('min' => 2, 'max' => 255))) {
       $errors[] = "Last name must be between 2 and 255 characters.";
+    } elseif (!preg_match("/\A[A-Za-z\s\-,\.\']+\Z/",$salesperson['last_name'])){
+      $errors[] = "Last name must be only letters, space and symbols(- , . ').";
     }
+
 
     if (is_blank($salesperson['phone'])) {
       $errors[] = "Phone number cannot be blank.";
-    } elseif (!has_length($salesperson['phone'], array('min' => 10, 'max' => 12))) {
-      $errors[] = "Invalid phone number.";
+    } elseif (!has_length($salesperson['phone'], array('min' => 10, 'max' => 14))) {
+      $errors[] = "Invalid phone number length.";
+    } elseif (!preg_match("/\A[0-9\-\(\)]+\Z/",$salesperson['phone'])){
+      $errors[] = "Invalid phone number format.";
     }
 
     if (is_blank($salesperson['email'])) {
@@ -403,24 +417,36 @@
       $errors[] = "First name cannot be blank.";
     } elseif (!has_length($user['first_name'], array('min' => 2, 'max' => 255))) {
       $errors[] = "First name must be between 2 and 255 characters.";
+    } elseif (!preg_match("/\A[A-Za-z\s\-,\.\']+\Z/",$user['first_name'])){
+      $errors[] = "Last name must be only letters, space and symbols(- , . ').";
     }
+
 
     if (is_blank($user['last_name'])) {
       $errors[] = "Last name cannot be blank.";
     } elseif (!has_length($user['last_name'], array('min' => 2, 'max' => 255))) {
       $errors[] = "Last name must be between 2 and 255 characters.";
+    } elseif (!preg_match("/\A[A-Za-z\s\-,\.\']+\Z/",$user['last_name'])){
+      $errors[] = "Last name must be only letters, space and symbols(- , . ').";
     }
+
 
     if (is_blank($user['email'])) {
       $errors[] = "Email cannot be blank.";
     } elseif (!has_valid_email_format($user['email'])) {
       $errors[] = "Email must be a valid format.";
     }
-
+    //connection for mysqli_query
+    $connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
     if (is_blank($user['username'])) {
       $errors[] = "Username cannot be blank.";
     } elseif (!has_length($user['username'], array('min' => 8, 'max' => 255))) {
       $errors[] = "Username must be at least 8 characters and less than 255 characters.";
+    } elseif (!preg_match("/\A[A-Za-z0-9\_]+\Z/",$user['username'])){
+      $errors[] = "Username must be only letters, numbers and symbols.";
+    } elseif (mysqli_num_rows(mysqli_query($connection,"SELECT *FROM users WHERE username='{$user['username']}'")) > 0){
+      $errors[] = "Username already exist.";
+      //check uniqueness of username in database
     }
     return $errors;
   }
