@@ -57,7 +57,7 @@ The following advanced user stories are optional:
 
 - [ ]  Bonus: On "public/staff/territories/show.php", display the name of the state.
 
-- [x]  Bonus: Validate the uniqueness of `users.username`.
+- []  Bonus: Validate the uniqueness of `users.username`.
 
 - [ ]  Bonus: Add a page for "public/staff/users/delete.php".
 
