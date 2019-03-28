@@ -1,7 +1,7 @@
 # phpweek2-3
 # Project 2 - Input/Output Sanitization
 
-Time spent: 73 hours spent in total
+Time spent: 6.5 hours spent in total
 
 ## User Stories
 
